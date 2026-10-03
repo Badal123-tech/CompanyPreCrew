@@ -2,16 +2,25 @@ import queue
 import threading
 import time
 import gradio as gr
+
 try:
-    import spaces  # For Hugging Face ZeroGPU environments
+    import spaces
 except ImportError:
     class _MockSpaces:
-        def GPU(self, fn):
-            return fn
+        def GPU(self, *args, **kwargs):
+            def decorator(fn):
+                return fn
+            return decorator
 
     spaces = _MockSpaces()
 
+
+@spaces.GPU(duration=1)
+def _zerogpu_startup_probe():
+    return None
+
 from company_pre_crew.crew import CompanyPrepCrew
+
 
 CUSTOM_CSS = """
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
