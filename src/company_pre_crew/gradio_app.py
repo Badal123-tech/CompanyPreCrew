@@ -345,6 +345,7 @@ def run_gui():
         css=CUSTOM_CSS,
         share=False,
         inbrowser=True,
+        ssr_mode=False,
     )
 
 
