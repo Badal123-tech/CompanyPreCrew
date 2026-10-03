@@ -2,6 +2,15 @@ import queue
 import threading
 import time
 import gradio as gr
+try:
+    import spaces  # For Hugging Face ZeroGPU environments
+except ImportError:
+    class _MockSpaces:
+        def GPU(self, fn):
+            return fn
+
+    spaces = _MockSpaces()
+
 from company_pre_crew.crew import CompanyPrepCrew
 
 CUSTOM_CSS = """
@@ -331,13 +340,11 @@ with gr.Blocks(title="CompanyPrep AI") as demo:
 
 
 def run_gui():
-    demo.launch(theme=theme, css=CUSTOM_CSS, share=False, inbrowser=True)
-
-
-def run_gui():
     demo.launch(
         theme=theme,
-        css=CUSTOM_CSS
+        css=CUSTOM_CSS,
+        share=False,
+        inbrowser=True,
     )
 
 
