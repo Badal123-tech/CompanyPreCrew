@@ -6,7 +6,7 @@ colorTo: blue
 sdk: gradio
 sdk_version: 6.29.1
 python_version: "3.12"
-app_file: src/company_pre_crew/gradio_app.py
+app_file: app.py
 pinned: false
 license: mit
 short_description: AI-powered company interview preparation
