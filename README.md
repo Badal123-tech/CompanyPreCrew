@@ -9,8 +9,7 @@ python_version: "3.12"
 app_file: src/company_pre_crew/gradio_app.py
 pinned: false
 license: mit
-short_description: CrewAI agents researching, generating, and fact-checking interview briefs
----
+short_description: AI-powered company interview preparation---
 
 # CompanyPreCrew
 
