@@ -9,8 +9,8 @@ python_version: "3.12"
 app_file: src/company_pre_crew/gradio_app.py
 pinned: false
 license: mit
-short_description: AI-powered company interview preparation---
-
+short_description: AI-powered company interview preparation
+---
 # CompanyPreCrew
 
 An AI-powered company interview preparation system built with **CrewAI** and **Gradio**.
