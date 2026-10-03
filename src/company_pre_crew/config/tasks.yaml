@@ -1,0 +1,38 @@
+research_task:
+  description: >
+    Research {company_name} for someone interviewing for a {target_role}
+    role. Cover: company overview, recent news (last 6 months), tech stack
+    and products, funding/financial status, and culture or interview
+    process notes if available. For every fact, record the source URL.
+  expected_output: >
+    A structured list of findings. Each finding has: the fact, the category
+    it belongs to, and the source URL it came from.
+  agent: researcher
+
+writing_task:
+  description: >
+    Using the research findings, write a one-page interview prep brief for
+    {company_name}. Structure it with sections: Company Overview, Recent
+    Developments, Tech Stack & Products, Culture Notes, and 3-5 Smart
+    Questions to Ask. Cite the source for each factual claim.
+  expected_output: >
+    A markdown document with the five sections above, each claim tagged
+    with its source.
+  agent: writer
+  context:
+    - research_task
+
+editing_task:
+  description: >
+    Review the draft brief against the original research findings. For
+    every factual claim, confirm it matches a finding from the research.
+    Remove or flag any claim that isn't backed by a source. Output the
+    final, corrected brief.
+  expected_output: >
+    The final markdown brief, fact-checked, with a Sources section listing
+    every URL used.
+  agent: editor
+  context:
+    - research_task
+    - writing_task
+  output_file: output/result.md

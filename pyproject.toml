@@ -1,0 +1,26 @@
+[project]
+name = "company_pre_crew"
+version = "0.1.0"
+description = "company_pre_crew using crewAI"
+authors = [{ name = "Your Name", email = "you@example.com" }]
+requires-python = ">=3.10,<3.14"
+dependencies = [
+    "crewai[google-genai,tools]==1.14.4",
+    "gradio>=6.26.0",
+]
+
+[project.scripts]
+company_pre_crew = "company_pre_crew.main:run"
+run_crew = "company_pre_crew.main:run"
+gui = "company_pre_crew.gradio_app:run_gui"
+train = "company_pre_crew.main:train"
+replay = "company_pre_crew.main:replay"
+test = "company_pre_crew.main:test"
+run_with_trigger = "company_pre_crew.main:run_with_trigger"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.crewai]
+type = "crew"
